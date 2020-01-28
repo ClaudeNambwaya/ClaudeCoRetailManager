@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 
+//https://stackoverflow.com/questions/51117655/how-to-use-swagger-in-asp-net-webapi-2-0-with-token-based-authentication
+
 namespace CRMDataManager.Controllers
 {
     [Authorize]
