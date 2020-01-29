@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMDataManager", "CRMDataManager\CRMDataManager.csproj", "{375B3EF8-D29C-4459-9B41-D74E357D1079}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CRMData", "CRMData\CRMData.sqlproj", "{93867A28-9171-4339-9E40-EE2A7796CEA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMDesktopUI", "CRMDesktopUI\CRMDesktopUI.csproj", "{39D63BA4-3EEE-45A7-A1FA-DEBE7E96DCD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{375B3EF8-D29C-4459-9B41-D74E357D1079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{375B3EF8-D29C-4459-9B41-D74E357D1079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{375B3EF8-D29C-4459-9B41-D74E357D1079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93867A28-9171-4339-9E40-EE2A7796CEA1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{39D63BA4-3EEE-45A7-A1FA-DEBE7E96DCD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D63BA4-3EEE-45A7-A1FA-DEBE7E96DCD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D63BA4-3EEE-45A7-A1FA-DEBE7E96DCD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D63BA4-3EEE-45A7-A1FA-DEBE7E96DCD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
