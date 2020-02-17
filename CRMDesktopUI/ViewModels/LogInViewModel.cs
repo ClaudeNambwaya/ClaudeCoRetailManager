@@ -1,10 +1,9 @@
 ﻿using Caliburn.Micro;
-using CRMDesktopUI.Helpers;
+using CRMDesktopUI.EventModels;
+using CRMDesktopUI.Library.Api;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace CRMDesktopUI.ViewModels
 {
@@ -12,11 +11,13 @@ namespace CRMDesktopUI.ViewModels
 	{
 		private string _userName;
 		private string _password;
-		private readonly IAPIHelper _apiHelper;
+		private  IAPIHelper _apiHelper;
+		private IEventAggregator _events;
 
-		public LoginViewModel(IAPIHelper apiHelper)
+		public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
 		{
 			_apiHelper = apiHelper;
+			_events = events;
 		}
 
 		public string UserName
@@ -29,6 +30,36 @@ namespace CRMDesktopUI.ViewModels
 				NotifyOfPropertyChange(() => Password);
 			}
 		}
+
+		public bool IsErrorVisible
+		{
+			get 
+			{
+				bool output = false;
+
+				if (ErrorMessage?.Length > 0)
+				{
+					output = true; 
+				}
+
+				return output; 
+			}
+		}
+
+		private string _errorMessage;
+
+		public string ErrorMessage
+		{
+			get { return _errorMessage; }
+			set 
+			{
+
+				_errorMessage = value;
+				NotifyOfPropertyChange(() => IsErrorVisible);
+				NotifyOfPropertyChange(() => ErrorMessage);
+			}
+		}
+
 
 
 		public string Password
@@ -62,13 +93,19 @@ namespace CRMDesktopUI.ViewModels
 		{
 			try
 			{
-				_ = await _apiHelper.Authenticate(UserName, Password);
+				ErrorMessage = "";							
+				var result = await _apiHelper.Authenticate(UserName, Password);
+
+				//Capture more information about the user
+				await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+				_events.PublishOnUIThread(new LogOnEvent()); 
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.Message);
+				ErrorMessage = ex.Message;
 			}
-		}
+		 }
 	}
 }
 	

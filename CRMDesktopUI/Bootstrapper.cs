@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using CRMDesktopUI.Helpers;
+using CRMDesktopUI.Library.Api;
+using CRMDesktopUI.Library.Models;
 using CRMDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,11 +28,13 @@ namespace CRMDesktopUI
 
         protected override void Configure()
         {
-            _container.Instance(_container);
+            _container.Instance(_container)
+                .PerRequest<IProductEndpoint, ProductEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>() 
                 .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()

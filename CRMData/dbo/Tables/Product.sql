@@ -3,7 +3,8 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ProductName] NVARCHAR(100) NOT NULL, 
     [Description] NVARCHAR(MAX) NOT NULL, 
-    [ReatailPrice] MONEY NOT NULL,
+    [RetailPrice] MONEY NOT NULL,
+    [QuantityinStock] INT NOT NULL DEFAULT 1,
     [CreateDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
-    [LastModeified] DATETIME2 NOT NULL DEFAULT getutcdate()
+    [LastModified] DATETIME2 NOT NULL DEFAULT getutcdate() 
 )
